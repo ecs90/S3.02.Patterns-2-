@@ -29,12 +29,10 @@ public class MenuBolsa {
             case 2:
                 System.out.println("Introduce la agencia a quitar: ");
                 comando = input.nextLine();
-                Agencia agencia1 = new Agencia(comando);
-                if (agente.getObservers().contains(agencia1))
+                if (agente.removeObserver(new Agencia(comando)))
                     System.out.println("Agencia borrada!");
                 else
                     System.out.println("Agencia no existente");
-                agente.removeObserver(agencia1);
                 break;
             case 3:
                 try {

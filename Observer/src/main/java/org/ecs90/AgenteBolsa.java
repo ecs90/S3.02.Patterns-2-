@@ -3,9 +3,9 @@ package org.ecs90;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AgenteBolsa implements Observable{
+public class AgenteBolsa implements Observable<Agencia> {
     private double valorActual;
-    private List<Observer> observers;
+    private List<Agencia> observers;
 
     public AgenteBolsa(double valorActual) {
         this.valorActual = valorActual;
@@ -17,18 +17,14 @@ public class AgenteBolsa implements Observable{
         notification();
     }
 
-    public List<Observer> getObservers() {
-        return observers;
-    }
-
     @Override
-    public void addObserver(Observer observer) {
+    public void addObserver(Agencia observer) {
         observers.add(observer);
     }
 
     @Override
-    public void removeObserver(Observer observer) {
-        observers.remove(observer);
+    public boolean removeObserver(Agencia observer) {
+        return observers.remove(observer);
     }
 
     @Override
